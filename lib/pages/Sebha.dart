@@ -385,49 +385,51 @@ class _SebhaState extends State<Sebha> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width / 1.1,
                 height: MediaQuery.of(context).size.width / 1.1,
-                child: Stack(
-                  children: [
-                    Center(
-                      child: CircularProgressIndicator(
-                        strokeWidth: MediaQuery.of(context).size.width / 1.2,
-                        value: sebvar / x,
-                        color: Colors.white,
-                        backgroundColor: Colors.white.withOpacity(0.3),
-                      ),
-                    ),
-                    Center(
-                        child: Container(
-                      width: MediaQuery.of(context).size.width / 1.13,
-                      height: MediaQuery.of(context).size.width / 1.13,
-                      decoration: BoxDecoration(
-                        color: itemColor,
-                        borderRadius: BorderRadius.circular(
-                          MediaQuery.of(context).size.width / 1.13 / 2,
+                child: Center(
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: MediaQuery.of(context).size.width / 1.2,
+                          value: sebvar / x,
+                          color: Colors.white,
+                          backgroundColor: Colors.white.withOpacity(0.3),
                         ),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            'assets/images/decore11.png',
+                      ),
+                      Center(
+                          child: Container(
+                        width: MediaQuery.of(context).size.width / 1.13,
+                        height: MediaQuery.of(context).size.width / 1.13,
+                        decoration: BoxDecoration(
+                          color: itemColor,
+                          borderRadius: BorderRadius.circular(
+                            MediaQuery.of(context).size.width / 1.13 / 2,
                           ),
-                          opacity: 0.05,
-                          scale: 50,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '$sebvar',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 88,
-                            fontFamily: 'quran',
-                            wordSpacing: 2,
-                            height: 2.77,
+                          image: const DecorationImage(
+                            image: AssetImage(
+                              'assets/images/decore11.png',
+                            ),
+                            opacity: 0.05,
+                            scale: 50,
+                            fit: BoxFit.fill,
                           ),
                         ),
-                      ),
-                    )),
-                  ],
+                        child: Center(
+                          child: Text(
+                            '$sebvar',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 88,
+                              fontFamily: 'quran',
+                              wordSpacing: 2,
+                              height: 0,
+                            ),
+                          ),
+                        ),
+                      )),
+                    ],
+                  ),
                 ),
               ),
             ),

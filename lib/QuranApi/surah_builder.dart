@@ -92,9 +92,9 @@ class _SurahBuilderState extends State<SurahBuilder> {
               children: [
                 SelectableText(
                   '${quran.getVerse(
-                    widget.arabic[index + previousVerses]['sura_no'],
-                    widget.arabic[index + previousVerses]['aya_no'],
-                  )}${widget.arabic[index + previousVerses]['aya_no'].toString().toArabicNumbers}',
+                        widget.arabic[index + previousVerses]['sura_no'],
+                        widget.arabic[index + previousVerses]['aya_no'],
+                      ).toArabicNumbers}${widget.arabic[index + previousVerses]['aya_no'].toString().toArabicNumbers}',
                   style: TextStyle(
                     fontSize: arabicFontSize,
                     fontFamily: 'KFGQPC',
@@ -411,13 +411,13 @@ class _SurahBuilderState extends State<SurahBuilder> {
                                 ),
                                 Row(
                                   children: [
-                                    verseAudio(
-                                      index,
-                                      previousVerses,
-                                    ),
-                                    const SizedBox(
-                                      width: 8,
-                                    ),
+                                    // verseAudio(
+                                    //   index,
+                                    //   previousVerses,
+                                    // ),
+                                    // const SizedBox(
+                                    //   width: 8,
+                                    // ),
                                     PopupMenuButton(
                                       color: quranback,
                                       elevation: 0,
@@ -928,6 +928,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
                                   wordSpacing: -2,
+                                  letterSpacing: 0,
                                   fontSize: mushafFontSize,
                                   fontFamily: 'KFGQPC',
                                   color: qurantext,

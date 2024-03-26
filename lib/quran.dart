@@ -4667,12 +4667,14 @@ class _QrrrState extends State<Qrrr> {
           });
         },
         child: CircleAvatar(
-            backgroundColor: itemColor?.withOpacity(0.4),
-            radius: 20,
-            child: const Icon(
-              Icons.multitrack_audio,
-              size: 32,
-            )),
+          backgroundColor: itemColor?.withOpacity(0.4),
+          radius: 20,
+          child: const Icon(
+            Icons.multitrack_audio,
+            size: 32,
+            color: Colors.white,
+          ),
+        ),
       ),
     );
   }
@@ -5106,10 +5108,11 @@ class _QrrrState extends State<Qrrr> {
                 },
                 icon: CircleAvatar(
                   backgroundColor: itemColor?.withOpacity(0.6),
-                  radius: 24,
+                  radius: 20,
                   child: const Icon(
                     Icons.close,
                     size: 24,
+                    color: Colors.white,
                   ),
                 ),
               ),

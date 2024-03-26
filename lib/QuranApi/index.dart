@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:animate_do/animate_do.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -142,10 +141,6 @@ class _IndexPageState extends State<IndexPage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      final paly1 = AudioPlayer();
-                      if (volume == 0) {
-                        paly1.play(AssetSource("sounds/turnpage-99756.mp3"));
-                      }
                       sKey.currentState?.openDrawer();
                     });
                   },
@@ -212,12 +207,13 @@ class _IndexPageState extends State<IndexPage> {
                                   height: 4,
                                 ),
                                 Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Text(
                                       '${arabicName[i]['type']} -',
                                       style: const TextStyle(
                                         fontSize: 12,
-                                        height: 1,
+                                        height: 0.5,
                                         letterSpacing: 0,
                                         wordSpacing: 2,
                                         color:
@@ -236,7 +232,7 @@ class _IndexPageState extends State<IndexPage> {
                                         height: 0.5,
                                         color:
                                             Color.fromARGB(255, 125, 123, 123),
-                                        fontFamily: 'quran',
+                                        fontFamily: 'KFGQPC',
                                         fontWeight: FontWeight.normal,
                                       ),
                                     ),
@@ -247,7 +243,7 @@ class _IndexPageState extends State<IndexPage> {
                                       noOfVerses[i] <= 10 ? 'آيات' : 'آية',
                                       style: const TextStyle(
                                         fontSize: 12,
-                                        height: 1,
+                                        height: 0.5,
                                         letterSpacing: 0,
                                         wordSpacing: 2,
                                         color:
