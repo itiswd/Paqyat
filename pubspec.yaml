@@ -46,7 +46,7 @@ dependencies:
   hijri: ^3.0.0
   location: ^4.4.0
   adhan: ^2.0.0-nullsafety.2
-  intl: ^0.18.0
+  intl: ^0.20.2
   firebase_core: ^2.10.0
   firebase_storage: ^11.0.15
   quran: ^1.2.2

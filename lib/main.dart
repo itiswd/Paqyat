@@ -1,57 +1,36 @@
-// import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:paqyat/QuranApi/constant.dart';
+import 'package:paqyat/core/services/preferences_service.dart';
 import 'package:paqyat/quran.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // تهيئة Firebase
   await Firebase.initializeApp();
-  SharedPreferences pref1 = await SharedPreferences.getInstance();
-  SharedPreferences pref3 = await SharedPreferences.getInstance();
-  SharedPreferences pref4 = await SharedPreferences.getInstance();
-  SharedPreferences pref9 = await SharedPreferences.getInstance();
-  SharedPreferences pref10 = await SharedPreferences.getInstance();
-  SharedPreferences prefinitpage = await SharedPreferences.getInstance();
-  SharedPreferences prefAudio = await SharedPreferences.getInstance();
-  SharedPreferences presview = await SharedPreferences.getInstance();
-  SharedPreferences prefsa = await SharedPreferences.getInstance();
-  SharedPreferences transpref = await SharedPreferences.getInstance();
-  SharedPreferences trans2pref = await SharedPreferences.getInstance();
-  SharedPreferences trans3pref = await SharedPreferences.getInstance();
-  SharedPreferences moodpref = await SharedPreferences.getInstance();
-  final tdd = pref1.getInt("Dark") ?? 0;
-  final alc = pref3.getInt("allcounter") ?? 0;
-  final voc = pref4.getInt("Mute") ?? 0;
-  final mahh = pref9.getInt("madina") ?? 0;
-  final mobb = pref10.getInt("mobb") ?? 0;
-  final pagg = prefinitpage.getInt("initpage") ?? 0;
-  final audd = prefAudio.getInt("audio") ?? 0;
-  final slide = prefAudio.getDouble("slider") ?? 0;
-  final vv = presview.getBool("view") ?? false;
-  final aaa = prefsa.getInt("prefsa") ?? 0;
-  final tran = transpref.getBool("transvis") ?? false;
-  final tran2 = trans2pref.getBool("transvis2") ?? false;
-  final tran3 = trans3pref.getBool("transvis3") ?? false;
-  final mod = moodpref.getInt('moody') ?? 0;
+
+  // تحميل الإعدادات باستخدام الخدمة الجديدة
+  final prefs = await PreferencesService.getInstance();
+  final settings = prefs.getAllSettings();
+
   runApp(MyApp(
-    tdd: tdd,
-    alc: alc,
-    voc: voc,
-    mahh: mahh,
-    mobb: mobb,
-    pagg: pagg,
-    audd: audd,
-    slide: slide,
-    vv: vv,
-    aaa: aaa,
-    tran: tran,
-    tran2: tran2,
-    tran3: tran3,
-    mod: mod,
+    tdd: settings.darkMode,
+    alc: settings.allCounter,
+    voc: settings.mute,
+    mahh: settings.madina,
+    mobb: settings.mobtahelen,
+    pagg: settings.initPage,
+    audd: settings.audio,
+    slide: settings.slider,
+    vv: settings.view,
+    aaa: settings.prefSa,
+    tran: settings.transVis,
+    tran2: settings.transVis2,
+    tran3: settings.transVis3,
+    mod: settings.mood,
   ));
 }
 
@@ -94,13 +73,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  get ayah => null;
   @override
   void initState() {
+    super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await getSettings();
     });
-    super.initState();
   }
 
   @override

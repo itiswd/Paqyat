@@ -741,6 +741,6 @@ List<int> noOfVerses = [
 List quran = [];
 
 readJson() {
-  List arabic = jsoon["quran"];
+  List arabic = tafseer["quran"];
   return quran = [arabic];
 }
